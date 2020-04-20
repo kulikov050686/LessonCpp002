@@ -7,6 +7,13 @@ Student::Student()
 	this->Age = 18;
 }
 
+Student::Student(const Student& object)
+{
+	this->Age = object.Age;
+	this->Name = object.Name;
+	this->Surname = object.Surname;
+}
+
 Student::Student(string name, string surname, int age)
 {
 	this->Name = name;

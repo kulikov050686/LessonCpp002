@@ -37,6 +37,25 @@ ControllerStudent::ControllerStudent()
 	student = nullptr;
 }
 
+ControllerStudent::ControllerStudent(const ControllerStudent& object)
+{
+	this->Path = object.Path;
+	this->AgeStudent = object.AgeStudent;
+	this->NumberOfStudents = object.NumberOfStudents;
+	this->NameStudent = object.NameStudent;
+	this->SurnameSrudent = object.SurnameSrudent;
+
+	if (object.student != nullptr)
+	{
+		this->student = new Student[object.NumberOfStudents];
+
+		for (int i = 0; i < object.NumberOfStudents; i++)
+		{
+			this->student[i] = object.student[i];
+		}
+	}
+}
+
 bool ControllerStudent::Add(int numberofstudent)
 {
 	if (numberofstudent >= 1)
@@ -258,8 +277,5 @@ int ControllerStudent::getNumberOfStudents()
 
 ControllerStudent::~ControllerStudent()
 {
-	if (student != nullptr)
-	{
-		delete[] student;
-	}
+	delete[] student;	
 }
