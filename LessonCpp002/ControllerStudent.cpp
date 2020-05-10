@@ -39,6 +39,11 @@ ControllerStudent::ControllerStudent()
 
 ControllerStudent::ControllerStudent(const ControllerStudent& object)
 {
+	if (student != nullptr)
+	{
+		delete[] student;
+	}
+
 	this->Path = object.Path;
 	this->AgeStudent = object.AgeStudent;
 	this->NumberOfStudents = object.NumberOfStudents;
